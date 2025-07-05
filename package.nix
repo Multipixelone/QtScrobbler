@@ -27,7 +27,9 @@ stdenv.mkDerivation {
 
   postPatch = ''
     cd src
-    sed -i -e "s,/usr/local,$out," -e "s,/usr,," common.pri
+    # sed -i -e "s,/usr/local,$out," -e "s,/usr,," common.pri
+    substituteInPlace common.pri \
+      --replace-fail "/usr/local" $out
   '';
 
   postFixup = ''

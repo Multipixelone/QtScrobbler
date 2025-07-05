@@ -22,8 +22,7 @@ unix:mac {
 
 unix:!mac {
     INSTALLS += target \
-                man \
-                man-compress
+                man 
 
     target.path = $$BINDIR
 
@@ -31,7 +30,7 @@ unix:!mac {
     man.path = $${DATADIR}/man/man1
 
     man-compress.path = $${DATADIR}/man/man1
-    man-compress.extra = "gzip -9 -f \$(INSTALL_ROOT)/$$DATADIR/man/man1/scrobbler.1"
+    man-compress.extra = "gzip -9 -f \$(INSTALL_ROOT)$$DATADIR/man/man1/scrobbler.1"
 }
 
 include (../app.pri)
